@@ -1,5 +1,6 @@
 import random
 import click
+import unittest
 
 
 class Pizza:
@@ -15,7 +16,7 @@ class Pizza:
             self.recipe = {'tomato sauce': '5', 'mozzarella': '20', 'pepperoni': '8'}
             self.title += ' 🍕'
         elif title == 'Hawaiian':
-            self.recipe = {'tomato sauce': '5', 'mozzarella': '20', 'chicken': '4', 'pineapples':'6'}
+            self.recipe = {'tomato sauce': '5', 'mozzarella': '20', 'chicken': '4', 'pineapples': '6'}
             self.title += ' 🍍'
         else:
             print('We do not have that kind of pizza :(')
@@ -74,6 +75,7 @@ def order(pizza: str, delivery: bool):
 
 def log(text):
     """Декоратор для вывода времени приготовления/доставки/самовывоза"""
+
     def time_giver(function):
         def decorator(*args, **kwargs):
             function(*args, **kwargs)
@@ -111,7 +113,23 @@ def menu():
         print(f'{i.title}: {recipe}')
 
 
+# Тесты
+class TestTF(unittest.TestCase):
+    def test_eql_size(self):
+        """Тест сравнения размера пицц """
+        first_pizza = Pizza('Mozzarella', 'l').size
+        second_pizza = Pizza('Hawaiian', 'l').size
+        self.assertTrue(first_pizza == second_pizza)
+
+    def test_eql_title(self):
+        """Тест сравнения названия пицц """
+        first_pizza = Pizza('Mozzarella', 'l').title
+        second_pizza = Pizza('Hawaiian', 'l').title
+        self.assertEqual(first_pizza, second_pizza)
+
+
 if __name__ == '__main__':
+    # unittest.main() # откомментить для тестов
     # Все наши пиццы
     pizza_Mozzarella = Pizza('Mozzarella', 'l')
     pizza_Pepperoni = Pizza('Pepperoni', 'l')
