@@ -53,21 +53,21 @@ def cli():
 @click.argument('pizza', nargs=1)
 def order(pizza: str, delivery: bool):
     """Готовит и доставляет пиццу"""
-    pizza = ''
+    ordered_pizza = ''
     if pizza in ['mozzarella', 'Mozzarella', 'margherita', 'Margherita']:
-        order_pizza = pizza_Mozzarella
+        ordered_pizza = pizza_Mozzarella
     elif pizza in ['pepperoni', 'Pepperoni']:
-        order_pizza = pizza_Pepperoni
+        ordered_pizza = pizza_Pepperoni
     elif pizza in ['hawaiian', 'Hawaiian']:
-        order_pizza = pizza_Hawaiian
+        ordered_pizza = pizza_Hawaiian
 
     # Если у нас есть пицца, которую попросил клиент, начинаем ее готовить. Если нет - выводим сообщение
-    if pizza != '':
-        bake(order_pizza)
+    if ordered_pizza != '':
+        bake(ordered_pizza)
         if delivery:
-            delivery_p(order_pizza)
+            delivery_p(ordered_pizza)
         else:
-            pick(order_pizza)
+            pick(ordered_pizza)
     else:
         print('We do not have this type of pizza, but there are many others. Our personnel recommendation is Hawaiian!')
 
