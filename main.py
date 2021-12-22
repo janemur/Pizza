@@ -77,8 +77,8 @@ def log(text):
     def time_giver(function):
         def decorator(*args, **kwargs):
             function(*args, **kwargs)
-            time_sec = random.randint(5, 20)
-            print(text.format(str(time_sec)))
+            time_in_min = random.randint(5, 20)
+            print(text.format(str(time_in_min)))
         return decorator
     return time_giver
 
