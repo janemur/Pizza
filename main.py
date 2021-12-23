@@ -27,7 +27,7 @@ class Pizza:
             self.size = 'XL'
 
         # исключение помогает также не отвергать значения написанные не капсом, если у нас такого размер нет,
-        # выдаем ValueError
+        # выдаем сообщение об ошибке
         if self.size.upper() not in ['L', 'XL']:
             print('Currently we have only L and XL sizes. There should be a lot of good pizza')
 
