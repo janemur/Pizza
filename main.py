@@ -129,7 +129,7 @@ class TestTF(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # unittest.main() # откомментить для тестов
+    # unittest.main() # откомментить для тестов /
     # Все наши пиццы
     pizza_Mozzarella = Pizza('Mozzarella', 'l')
     pizza_Pepperoni = Pizza('Pepperoni', 'l')
